@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 double nr(double a0, double a1, double a2, double a3, double a4, double a5, double x0){
     if (a1+2*a2*x0+3*a3*x0*x0+4*a4*x0*x0*x0+5*a5*x0*x0*x0*x0==0){
@@ -10,8 +11,8 @@ double nr(double a0, double a1, double a2, double a3, double a4, double a5, doub
     x1 = x0 - (a0+a1*x0+a2*x0*x0+a3*x0*x0*x0+a4*x0*x0*x0*x0+a5*x0*x0*x0*x0*x0)/(a1+2*a2*x0+3*a3*x0*x0+4*a4*x0*x0*x0+5*a5*x0*x0*x0*x0);
     static int counter=0;
     counter+=1;
-if (x1-x0<1e-6 || x0-x1<1e-6){
-        return x1;
+if (fabs(x1-x0)<1e-6){
+        printf("%1.2f\n",x1);
 }
     else if (counter==1000){
         printf("incomplete\n");
@@ -35,5 +36,5 @@ if (x1-x0<1e-6 || x0-x1<1e-6){
     double a5 = strtod(argv[6],NULL);
     double x0 = strtod(argv[7],NULL);
     
-    printf("%1.2f\n",nr(a0,a1,a2,a3,a4,a5,x0));
+    return nr(a0,a1,a2,a3,a4,a5,x0);
     }
