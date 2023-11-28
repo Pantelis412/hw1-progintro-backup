@@ -5,7 +5,7 @@
 double nr(double a0, double a1, double a2, double a3, double a4, double a5, double x0){/*declaration of function newton-raphson (nr)*/
     if (a1+2*a2*x0+3*a3*x0*x0+4*a4*x0*x0*x0+5*a5*x0*x0*x0*x0==0){/*check if the derivative of polynomial is zero*/
         printf("nan\n");
-        return 1;
+        return 0;
     }
     double x1;
     x1 = x0 - (a0+a1*x0+a2*x0*x0+a3*x0*x0*x0+a4*x0*x0*x0*x0+a5*x0*x0*x0*x0*x0)/(a1+2*a2*x0+3*a3*x0*x0+4*a4*x0*x0*x0+5*a5*x0*x0*x0*x0);/*calculation of the new approximate root*/
@@ -15,9 +15,9 @@ double nr(double a0, double a1, double a2, double a3, double a4, double a5, doub
         printf("%1.2f\n",x1);
         return 0;
 }
-    else if (counter==1000){/*if the counter reach 1000 terminate the program*/
+    else if (counter>1000){/*if the counter reach 1000 terminate the program*/
         printf("incomplete\n");
-        return 1;
+        return 0;
     }
     else{ /*repeat the procedure to find a more approximate root*/
     x0=x1;
