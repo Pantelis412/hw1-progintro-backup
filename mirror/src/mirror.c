@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-int IsPrime(int n)
+int IsPrime(int n)/*function to check if a number is prime*/
 {
-    if (!(n % 2))
+    if (!(n % 2))/*if the number is even return 0*/
     {
         return 0;
     }
