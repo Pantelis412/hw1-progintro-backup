@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-long long int one_digit(int n){
+long long int one_digit(long long int n){
     long long int sum=0;
     int tmp;
     while(n>0){
@@ -23,9 +23,9 @@ int main(int argc, char **argv){
         return 1;
     if (low < 1 || high > 1e+12)
         return 1;
-     for (int i = (ceil(sqrt(low))); i <= (floor(sqrt(high))); i++){
-            if((i*i)==one_digit(i))
-                printf("%d is a flawless square\n",i*i);
-            return 0;
+     for (long long int i = (ceil(sqrt(low))); i <= (floor(sqrt(high))); i++){
+            if((i*i)==one_digit(i*i))
+                printf("%lld is a flawless square\n",i*i);
      }
+      return 0;
 }
