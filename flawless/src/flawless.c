@@ -23,9 +23,12 @@ int main(int argc, char **argv){
         return 1;
     if (low < 1 || high > 1e+12)
         return 1;
+    long long int sum=0;
      for (long long int i = (ceil(sqrt(low))); i <= (floor(sqrt(high))); i++){
-            if((i*i)==one_digit(i*i))
-                printf("%lld is a flawless square\n",i*i);
+            if((i*i)==one_digit(i*i)){
+                sum+=(i*i);
+                }
      }
+     printf("%lld\n",sum);
       return 0;
 }
